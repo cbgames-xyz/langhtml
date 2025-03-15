@@ -58,7 +58,7 @@
     function submitLanguage() {
       const selectedLang = document.getElementById('language-select').value;
       localStorage.setItem('preferredLanguage', selectedLang);
-      window.location.href = `/${selectedLang}/index.html`; // Redirect
+      window.location.href = `./${selectedLang}/index.html`; // Redirect
     }
 
     // Auto-select the saved language

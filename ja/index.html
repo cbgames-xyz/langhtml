@@ -6,6 +6,6 @@
     document.getElementById('language-select').value = localStorage.getItem('preferredLanguage') || 'en-nz';
     document.getElementById('language-select').addEventListener('change', function() {
         localStorage.setItem('preferredLanguage', this.value);
-        window.location.href = `/${this.value}/index.html`;
+        window.location.href = `./${this.value}/index.html`;
     });
 </script>
