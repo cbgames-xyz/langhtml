@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">404 - Page Not Found</h1>
+    <p id="message">The page you are looking for does not exist.</p>
+    <a href="/index.html" id="home-link">Go Back Home</a>
+
+    <script>
+        const translations = {
+            "en-nz": {
+                title: "404 - Page Not Found",
+                message: "The page you are looking for does not exist.",
+                home: "Go Back Home"
+            },
+            "ja": {
+                title: "404 - ページが見つかりません",
+                message: "お探しのページは存在しません。",
+                home: "ホームに戻る"
+            }
+        };
+
+        function setLanguage() {
+            const preferredLang = localStorage.getItem('preferredLanguage') || 'en-nz';
+            if (translations[preferredLang]) {
+                document.getElementById('title').textContent = translations[preferredLang].title;
+                document.getElementById('message').textContent = translations[preferredLang].message;
+                document.getElementById('home-link').textContent = translations[preferredLang].home;
+            }
+        }
+
+        setLanguage();
+    </script>
+</body>
+</html>

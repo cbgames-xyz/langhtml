@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1 id="welcome-message">Welcome to the site!</h1>
+    <label for="language-select">Choose Language:</label>
+    <select id="language-select">
+        <option value="en-nz">English (NZ)</option>
+        <option value="ja">日本語 (Japanese)</option>
+    </select>
+
+    <script>
+        const translations = {
+            "en-nz": {
+                welcome: "Welcome to the site!",
+            },
+            "ja": {
+                welcome: "サイトへようこそ！",
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+            window.location.href = `/${lang}/index.html`;  // Redirect to new language page
+        }
+
+        function loadLanguage() {
+            const preferredLang = localStorage.getItem('preferredLanguage') || 'en-nz';
+            document.getElementById('language-select').value = preferredLang;
+            document.getElementById('welcome-message').textContent = translations[preferredLang].welcome;
+        }
+
+        document.getElementById('language-select').addEventListener('change', function() {
+            setLanguage(this.value);
+        });
+
+        loadLanguage(); // Load on page load
+    </script>
+</body>
+</html>

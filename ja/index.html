@@ -1,0 +1,11 @@
+<select id="language-select">
+    <option value="en-nz">English (NZ)</option>
+    <option value="ja">日本語 (Japanese)</option>
+</select>
+<script>
+    document.getElementById('language-select').value = localStorage.getItem('preferredLanguage') || 'en-nz';
+    document.getElementById('language-select').addEventListener('change', function() {
+        localStorage.setItem('preferredLanguage', this.value);
+        window.location.href = `/${this.value}/index.html`;
+    });
+</script>
